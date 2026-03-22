@@ -19,7 +19,7 @@ const ProductDescription = () => {
     const getUserId = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/auth/getUserId",
+          "https://zara-ecommerce.onrender.com/api/auth/getUserId",
           {
             withCredentials: true,
           }
@@ -36,7 +36,7 @@ const ProductDescription = () => {
     const fetchSingleProduct = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/product/read/${id}`
+          `https://zara-ecommerce.onrender.com/api/product/read/${id}`
         );
         setProduct(res.data.readSingle);
       } catch (err) {

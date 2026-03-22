@@ -12,7 +12,7 @@ const Cart = () => {
 
   const fetchProduct = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/cart/read", {
+      const res = await axios.get("https://zara-ecommerce.onrender.com/api/cart/read", {
         withCredentials: true,
       });
       setCartData(res.data.cart);
@@ -35,7 +35,7 @@ const Cart = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/cart/delete/${id}`, {
+      await axios.delete(`https://zara-ecommerce.onrender.com/api/cart/delete/${id}`, {
         withCredentials: true,
       });
       // Immediately update local cartData state to remove deleted item
@@ -74,7 +74,7 @@ const Cart = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/create-checkout-session",
+        "https://zara-ecommerce.onrender.com/api/create-checkout-session",
         cartData,
         {
           headers: {

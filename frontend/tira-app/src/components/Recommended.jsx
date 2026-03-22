@@ -8,7 +8,7 @@ const Recommended = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/product/read");
+        const res = await axios.get("https://zara-ecommerce.onrender.com/api/product/read");
         setProducts(res.data.readProduct);
         console.log(res.data);
       } catch (error) {

@@ -17,7 +17,7 @@ const Update = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/admin/${id}`);
+        const res = await axios.get(`https://zara-ecommerce.onrender.com/api/admin/${id}`);
         const data = res.data.readSingleProduct;
 
         setFormData({
@@ -57,7 +57,7 @@ const Update = () => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/admin/update/${id}`,
+        `https://zara-ecommerce.onrender.com/api/admin/update/${id}`,
         formData,
         {
           withCredentials: true,

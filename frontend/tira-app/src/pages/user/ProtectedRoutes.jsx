@@ -8,7 +8,7 @@ const ProtectedRoutes = ({ children }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/auth/checkAuth', {
+        const res = await axios.get('https://zara-ecommerce.onrender.com/api/auth/checkAuth', {
           withCredentials: true,
         });
         setIsAuth(res.data.authenticated);

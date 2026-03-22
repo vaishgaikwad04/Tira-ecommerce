@@ -9,7 +9,7 @@ const CreateReview = ({ productId }) => {
   useEffect(() => {
     const getUserId = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/auth/getUserId', {
+        const res = await axios.get('https://zara-ecommerce.onrender.com/api/auth/getUserId', {
           withCredentials: true
         });
         setUserId(res.data.userId);  // <-- save userId here
@@ -30,7 +30,7 @@ const CreateReview = ({ productId }) => {
 
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/create',
+        'https://zara-ecommerce.onrender.com/api/create',
         { userId, productId, message },
         { withCredentials: true }
       );

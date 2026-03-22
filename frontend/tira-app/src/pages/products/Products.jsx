@@ -16,7 +16,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/product/read");
+        const res = await axios.get("https://zara-ecommerce.onrender.com/api/product/read");
         setProducts(res.data.readProduct);
       } catch (error) {
         console.error("LIKE ERROR:", error); // Add this for better debugging
@@ -31,7 +31,7 @@ const Products = () => {
   useEffect(() => {
     const getUserId = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/auth/getUserId', {
+        const res = await axios.get('https://zara-ecommerce.onrender.com/api/auth/getUserId', {
           withCredentials: true
         });
         setUserId(res.data.userId);  // <-- save userId here
@@ -45,7 +45,7 @@ const Products = () => {
 
   const handleLike = async (productId) => {
     try {
-      const res = await axios.post(`http://localhost:5000/api/likes/${productId}`,{userId});
+      const res = await axios.post(`https://zara-ecommerce.onrender.com/api/likes/${productId}`,{userId});
       console.log(res.data)
       setLikes((prevLikes) => ({
         ...prevLikes,

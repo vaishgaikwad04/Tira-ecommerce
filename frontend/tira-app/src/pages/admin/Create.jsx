@@ -38,7 +38,7 @@ const Create = () => {
   
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/admin/create",
+        "https://zara-ecommerce.onrender.com/api/admin/create",
         finalData,
         {
           withCredentials: true,

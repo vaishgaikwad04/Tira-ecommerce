@@ -17,7 +17,7 @@ const Category = () => {
     if (category) {
       const fetchProduct = async () => {
         try {
-          const res = await axios.get(`http://localhost:5000/api/product/category/${category}`);
+          const res = await axios.get(`https://zara-ecommerce.onrender.com/api/product/category/${category}`);
           setCategoryData(res.data.categories);  // Assuming 'categories' is the correct field in the response
           console.log(res.data.categories);  // Log the response to inspect the structure
         } catch (error) {

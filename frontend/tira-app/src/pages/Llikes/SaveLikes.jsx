@@ -11,7 +11,7 @@ const SaveLikes = () => {
     const getUserId = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/auth/getUserId",
+          "https://zara-ecommerce.onrender.com/api/auth/getUserId",
           {
             withCredentials: true,
           }
@@ -32,7 +32,7 @@ const SaveLikes = () => {
     const fetchLikes = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/likeProducts/${userId}`
+          `https://zara-ecommerce.onrender.com/api/likeProducts/${userId}`
         );
         console.log("Liked Products:", res.data);
         setFetchLikeProducts(res.data.likedProducts);
@@ -47,7 +47,7 @@ const SaveLikes = () => {
   const handleClick = async (productId) => {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/api/likes/delete/${productId}`
+        `https://zara-ecommerce.onrender.com/api/likes/delete/${productId}`
       );
       console.log(res.data);
 

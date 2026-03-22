@@ -11,7 +11,7 @@ const ReadReview = ({ productId, userId }) => {
   const fetchReview = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/read/${productId}`,
+        `https://zara-ecommerce.onrender.com/api/read/${productId}`,
         {
           params: { userId },
           withCredentials: true,
@@ -30,7 +30,7 @@ const ReadReview = ({ productId, userId }) => {
     const fetchRole = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/auth/getUserId",
+          "https://zara-ecommerce.onrender.com/api/auth/getUserId",
           {
             withCredentials: true,
           }
@@ -46,7 +46,7 @@ const ReadReview = ({ productId, userId }) => {
   // Delete review and refresh
   const handleDelete = async (reviewId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/delete/${reviewId}`, {
+      await axios.delete(`https://zara-ecommerce.onrender.com/api/delete/${reviewId}`, {
         withCredentials: true,
       });
       fetchReview();

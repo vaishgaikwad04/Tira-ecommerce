@@ -11,7 +11,7 @@ const Read = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/admin", {
+        const res = await axios.get("https://zara-ecommerce.onrender.com/api/admin", {
           withCredentials: true,
         });
         setProducts(res.data.products);
@@ -25,7 +25,7 @@ const Read = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/delete/${id}`);
+      await axios.delete(`https://zara-ecommerce.onrender.com/api/admin/delete/${id}`);
       setProducts((prev) => prev.filter((product) => product._id !== id));
     } catch (error) {
       console.error("Delete error:", error);
