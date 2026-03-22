@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import NavHeader from '../../components/NavHeader'
+import NavHeader from '../../components/NavHeader';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const Register = () => {
       console.log(res.data);
       alert("✅ User registered successfully!");
       navigate("/auth/login");
-      setForm({ username: "", email: "", password: "", role: "user" }); // Reset form
+      setForm({ userName: "", email: "", password: "", role: "user" }); // Reset form
     } catch (error) {
       if (
         error.response &&

@@ -51,7 +51,7 @@ function App() {
 
         {/* Main App Layout */}
         <Route path="/" element={<Layout />}>
-          <Route path="products" element={<Products />} />
+          <Route index element={<Products />} />
           <Route
             path="products/description/:id"
             element={<ProductDescription />}
