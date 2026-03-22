@@ -47,18 +47,18 @@ const CreateReview = ({ productId }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-       <div className="w-full flex items-center">
-  <label className=" mb-2 text-gray-700 text-sm font-medium">
+     <div className="w-full flex items-center border-b border-gray-400 pb-1">
+  
+  <label className="text-gray-700 text-sm font-medium mr-4 whitespace-nowrap">
     Your reviews
   </label>
 
   <textarea
-    className="border-0 outline-none resize-none p-2"
-    placeholder='Your reviews'
+    className="flex-1 outline-none resize-none bg-transparent"
+    placeholder="Write your review..."
     value={message}
     onChange={(e) => setMessage(e.target.value)}
-    rows={4}
-    style={{ width: "100%" }}
+    rows={1}
   />
 </div>
         <button className='' type="submit">Submit</button>
