@@ -80,6 +80,7 @@ const Cart = () => {
           headers: {
             "Content-Type": "application/json",
           },
+           withCredentials: true
         }
       );
 
