@@ -138,7 +138,7 @@ const ProductDescription = () => {
                 </h2>
                 <button
                   onClick={handleCart}
-                  className="bg-white text-black border mt-2 w-90 h-10 rounded transition"
+                  className="bg-white text-black border mt-2 w-90 h-10 rounded transition hover:bg-black hover:text-white"
                 >
                   ADD
                 </button>

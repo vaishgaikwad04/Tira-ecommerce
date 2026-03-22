@@ -16,7 +16,7 @@ const Header = () => {
         <Link to="/" className="hidden md:block">
           <img
             className="w-70 h-auto py-4"
-            src="\src\assets\Zara-Logo-removebg-preview.png"
+            src="./Zara.png"
             alt="Logo"
           />
         </Link>
