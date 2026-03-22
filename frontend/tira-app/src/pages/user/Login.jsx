@@ -27,7 +27,7 @@ const Login = () => {
       console.log("Token:", token); // ✅ Now it will print the token
 
       console.log(res.data);
-      navigate("/products");
+      navigate("/");
     } catch (err) {
       setError("Invalid credentials. Please try again.");
       console.error("Login error:", err);

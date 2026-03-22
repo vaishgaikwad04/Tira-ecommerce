@@ -39,7 +39,7 @@ const Header = () => {
         >
           <div className="flex flex-col md:flex-row md:items-center py-4 md:py-0">
             <Link
-              to="/products"
+              to="/"
               className="px-4 py-2 hover:underline underline-offset-4 font-normal text-md"
             >
               PRODUCTS

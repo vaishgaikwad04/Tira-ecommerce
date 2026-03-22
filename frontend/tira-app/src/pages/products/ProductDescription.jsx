@@ -75,7 +75,7 @@ const ProductDescription = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/cart/create",
+        "https://zara-ecommerce.onrender.com/api/cart/create",
         cartItem
       );
       alert(res.data.message);
