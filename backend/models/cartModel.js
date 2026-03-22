@@ -10,6 +10,9 @@ const cartSchema = mongoose.Schema({
         default: 1,
       },
       sizes: String,
+      image: {
+  type: String,
+}
       
 })
 

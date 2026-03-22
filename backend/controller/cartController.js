@@ -1,7 +1,7 @@
 import cartModel from "../models/cartModel.js";
 
 export const createCart = async (req, res) => {
-  const { userId, productId, name, price, quantity, sizes } = req.body;
+  const { userId, productId, name, price, quantity, sizes,image} = req.body;
 
   try {
     const existingCart = await cartModel.findOne({ userId, productId });
@@ -19,6 +19,7 @@ export const createCart = async (req, res) => {
       price,
       quantity,
       sizes,
+      image
     });
 
     res.status(201).json({ message: 'Cart created successfully!', cart: createdCart });

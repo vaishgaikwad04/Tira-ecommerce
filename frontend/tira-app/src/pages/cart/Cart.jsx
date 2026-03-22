@@ -5,16 +5,18 @@ import { IoAdd } from "react-icons/io5";
 import { IoMdRemove } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 
-
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
   const [total, setTotal] = useState(0);
 
   const fetchProduct = async () => {
     try {
-      const res = await axios.get("https://zara-ecommerce.onrender.com/api/cart/read", {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        "https://zara-ecommerce.onrender.com/api/cart/read",
+        {
+          withCredentials: true,
+        },
+      );
       setCartData(res.data.cart);
     } catch (error) {
       console.error("Error fetching cart:", error);
@@ -22,36 +24,38 @@ const Cart = () => {
   };
 
   useEffect(() => {
-   fetchProduct();
+    fetchProduct();
   }, []);
 
   useEffect(() => {
     const calcTotal = cartData.reduce(
       (acc, item) => acc + item.price * item.quantity,
-      0
+      0,
     );
     setTotal(calcTotal);
   }, [cartData]);
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://zara-ecommerce.onrender.com/api/cart/delete/${id}`, {
-        withCredentials: true,
-      });
+      await axios.delete(
+        `https://zara-ecommerce.onrender.com/api/cart/delete/${id}`,
+        {
+          withCredentials: true,
+        },
+      );
       // Immediately update local cartData state to remove deleted item
       setCartData((prevCart) => prevCart.filter((item) => item._id !== id));
-      
+
       // Optional: fetch latest data from server to ensure sync
       // await fetchProduct();
     } catch (error) {
       console.error("Error deleting item:", error);
     }
   };
-  
 
   const handleInc = (id) => {
     const updatedCart = cartData.map((item) =>
-      item._id === id ? { ...item, quantity: item.quantity + 1 } : item
+      item._id === id ? { ...item, quantity: item.quantity + 1 } : item,
     );
     setCartData(updatedCart);
   };
@@ -60,16 +64,14 @@ const Cart = () => {
     const updatedCart = cartData.map((item) =>
       item._id === id && item.quantity > 1
         ? { ...item, quantity: item.quantity - 1 }
-        : item
+        : item,
     );
     setCartData(updatedCart);
   };
 
- 
-
   const makePayment = async () => {
     const stripe = await loadStripe(
-      "pk_test_51RXZvhPid00UItquuwWvzhYyDPzvqnrIXagBOdQ2m67MiOU9w8Tz1qpzDncy5RbpzbuBRLZqTvO0DTA6T9eD5QZm00eG2Zdq35"
+      "pk_test_51RXZvhPid00UItquuwWvzhYyDPzvqnrIXagBOdQ2m67MiOU9w8Tz1qpzDncy5RbpzbuBRLZqTvO0DTA6T9eD5QZm00eG2Zdq35",
     );
 
     try {
@@ -80,8 +82,8 @@ const Cart = () => {
           headers: {
             "Content-Type": "application/json",
           },
-           withCredentials: true
-        }
+          withCredentials: true,
+        },
       );
 
       const session = res.data;
@@ -107,26 +109,35 @@ const Cart = () => {
           {cartData.map((item) => (
             <div
               key={item._id}
-              className="flex flex-col md:flex-row justify-between items-center bg-white  rounded shadow-sm  p-12"
+              className="flex flex-col md:flex-row justify-between items-center bg-white rounded shadow-sm p-12 gap-6"
             >
+              {/* Image */}
+              <div className="w-full md:w-32">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-32 object-cover rounded"
+                />
+              </div>
+
+              {/* Details */}
               <div className="w-full md:w-2/3">
                 <h2 className="text-md font-normal">{item.name}</h2>
+
                 {item.sizes && (
-                  <p className=" text-gray-900 my-1">Size:  {item.sizes}</p>
+                  <p className="text-gray-900 my-1">Size: {item.sizes}</p>
                 )}
 
                 <p className="text-gray">Price: ${item.price}</p>
-                <div className="flex flex-inline gap-1">
-                  <button
-                    className="text-black"
-                    onClick={() => handleInc(item._id)}
-                  >
+
+                <div className="flex gap-2 items-center">
+                  <button onClick={() => handleInc(item._id)}>
                     <IoAdd />
                   </button>
+
                   <p className="text-gray-700">Quantity: {item.quantity}</p>
 
                   <button
-                    className="text-black"
                     onClick={() => handleDec(item._id)}
                     disabled={item.quantity <= 1}
                   >
@@ -134,23 +145,21 @@ const Cart = () => {
                   </button>
                 </div>
 
-                <div className="text-left text-lg font-normal mt-6">
-                  Total: <span className="text-black">${total.toFixed(2)}</span>
+                <div className="text-lg font-normal mt-4">
+                  Total: <span>${total.toFixed(2)}</span>
                 </div>
+
                 <button
                   onClick={() => makePayment()}
-                  className="mt-6 py-0 px-2 text-sm text-black  h-8 bg-white border w-60 rounded"
+                  className="mt-4 px-4 py-1 text-sm border rounded"
                 >
                   Checkout
                 </button>
               </div>
 
-              <button
-                className="text-black bg-white mr-30 relative bottom-22 rounded"
-                onClick={() => handleDelete(item._id)}
-              >
-                <RxCross2  className="w-4 h-6"/>
-
+              {/* Delete Button */}
+              <button onClick={() => handleDelete(item._id)}>
+                <RxCross2 className="w-5 h-5" />
               </button>
             </div>
           ))}

@@ -71,6 +71,7 @@ const ProductDescription = () => {
       price: product.price,
       quantity: 1,
       sizes :selectedSize,
+      image: product.image,
     };
 
     try {

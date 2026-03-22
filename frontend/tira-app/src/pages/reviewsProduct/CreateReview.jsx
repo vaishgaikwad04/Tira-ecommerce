@@ -54,14 +54,14 @@ const CreateReview = ({ productId }) => {
   </label>
 
   <textarea
-    className="flex-1 outline-none resize-none bg-transparent border-b border-gray-400 border-b border-gray-400 text-gray-700"
+    className="w-600 outline-none resize-none bg-transparent border-b border-gray-400 border-b border-gray-400 text-gray-700"
     placeholder="Write your review..."
     value={message}
     onChange={(e) => setMessage(e.target.value)}
     rows={1}
   />
 </div>
-        <button className='' type="submit">Submit</button>
+        <button className='hover:underline' type="submit">Submit</button>
       </form>
       {feedback && <p>{feedback}</p>}
     </div>
