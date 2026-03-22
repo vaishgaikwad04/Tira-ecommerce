@@ -48,12 +48,13 @@ const CreateReview = ({ productId }) => {
     <div>
       <form onSubmit={handleSubmit}>
        <div className="w-full flex items-center">
-  <label className="block mb-2 text-gray-700 text-sm font-medium">
+  <label className=" mb-2 text-gray-700 text-sm font-medium">
     Your reviews
   </label>
 
   <textarea
-    className="border outline-none resize-none p-2"
+    className="border-0 outline-none resize-none p-2"
+    placeholder='Your reviews'
     value={message}
     onChange={(e) => setMessage(e.target.value)}
     rows={4}
