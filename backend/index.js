@@ -19,7 +19,7 @@ const app = express();
 
 // CORS configuration
 const corsOptions = {
-    origin: 'https://zara-ecommerce-kqu7.onrender.com',
+    origin: 'https://courageous-mandazi-96928f.netlify.app',
     credentials: true,
 };
 app.use(cors(corsOptions));
