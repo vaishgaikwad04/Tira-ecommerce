@@ -65,6 +65,7 @@ const Products = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-6">
           {products.map((item) => (
             <div key={item._id} className="pt-10 px-4 rounded ">
+            <h1>hello</h1>
               <div className="relative">
                 <img
                   src={item.image}
